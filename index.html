@@ -6,16 +6,16 @@
 canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
+    
 }
+
 </style>
 </head>
 <body onload="startGame()">
-    <button onclick="moveUp()">Up</button>
-    <button onclick="moveDown()">Down</button>
-    <button onclick="moveLeft()">Left</button>
-    <button onclick="moveRight()">Right</button>
-    <br>
-    <script src="JS/main.js"></script>
+
+    <script src="JS/main.js">
+        window.addEventListener('keydown', handleMovement);
+    </script>
 
 </body>
 </html>
