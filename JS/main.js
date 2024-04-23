@@ -2,17 +2,13 @@ function startGame() {
     myGameArea.start();
     player1 = new component(30, 30, "red", startWidth, startHeight)
 }
-
+getElementbyNa
 var windowHeight = screen.availHeight
-var startHeight = windowHeight / 2
+var startHeight = windowHeight /2 
 var windowWidth = screen.availWidth
 var startWidth = windowWidth / 2
-
 console.log(windowHeight)
-console.log(startHeight)
 console.log(windowWidth)
-console.log(startWidth)
-
 
 //Creating canvas and initiating game
 var myGameArea = {
@@ -20,6 +16,8 @@ var myGameArea = {
     start : function() {
       var w = screen.availWidth;
       var h = screen.availHeight;
+      this.canvas.style.marginTop = "3%";
+      this.canvas.style.marginLeft = "5%";
       this.canvas.width = w ;
       this.canvas.height = h ;
       this.context = this.canvas.getContext("2d");
@@ -82,7 +80,6 @@ function logKey(e) {
             moveRight()
             border_control_width()
             break;
-
 }};
 
 
@@ -107,19 +104,23 @@ function updateGameArea() {
 
 //Movement
 function moveUp() {
-    player1.speedY -= 1;
+    x = -5;
+    player1.speedY = x 
     window.addEventListener("keyup", stop);
 }
 function moveDown() {
-    player1.speedY += 1;
+    x = 5;
+    player1.speedY = x
     window.addEventListener("keyup", stop);
 }
 function moveLeft() {
-    player1.speedX -= 1;
+    x = -5;
+    player1.speedX = x
     window.addEventListener("keyup", stop);
 }
 function moveRight() {
-    player1.speedX += 1;
+    x = 5;
+    player1.speedX = x
     window.addEventListener("keyup", stop);
 }
 
@@ -140,35 +141,41 @@ function stop(e) {
     switch (e.key) {
         case 'w':
             _moveUp()
-            console.log(player1.x)
+            console.log(player1.y)
             break;
         case 's':
             _moveDown()
-            console.log(player1.x)
+            console.log(player1.y)
             break;
         case 'a':
             _moveLeft()
-            console.log(player1.y)
+            console.log(player1.x)
             break;
         case 'd':
             _moveRight()
-            console.log(player1.y)
+            console.log(player1.x)
             break;
+            
 
 }};
 //Border Control (inbsert mexico joke)
 function border_control_width (x){
     x = player1.x
-    if(x == screen.availWidth){
-        player1.x = 0;
-        console.log(x)
+    if(x >= windowWidth){
+        player1.x = 1;
+    }else if(x <= 0){
+        player1.x = windowWidth - 1 ;
     }
     
 }
 function border_control_height (y){
     y = player1.y
-    if(y == screen.availWidth){
-        player1.y = 0;
-        console.log(y)
+    if(y >= windowHeight){
+        player1.y = 1;
+    }else if(y <= 1){
+        player1.y = windowHeight 
     }
 }
+
+
+
